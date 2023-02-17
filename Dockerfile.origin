@@ -1,5 +1,5 @@
-FROM geerlingguy/php-apache:latest
-
+#FROM geerlingguy/php-apache:latest
+FROM php:8.0-apache
 
 RUN docker-php-ext-install -j "$(nproc)" opcache
 RUN set -ex; \
