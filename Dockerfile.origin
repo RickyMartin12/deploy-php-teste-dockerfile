@@ -24,7 +24,9 @@ RUN set -ex; \
 WORKDIR /var/www/html
 
 #RUN rm /var/www/html/index.html
-COPY index.php /var/www/html/index.php
+COPY . /var/www/html/index.php
+
+RUN chmod -R 777 upload/
 
 COPY ./ports.conf /etc/apache2/ports.conf
 COPY ./apache.conf /etc/apache2/site-enabled/000-default.conf
