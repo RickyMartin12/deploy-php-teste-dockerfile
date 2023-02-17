@@ -1,6 +1,10 @@
 #FROM geerlingguy/php-apache:latest
 FROM php:8.0-apache
 
+
+
+
+
 RUN docker-php-ext-install -j "$(nproc)" opcache
 RUN set -ex; \
   { \
@@ -17,7 +21,7 @@ RUN set -ex; \
     echo "opcache.memory_consumption = 32"; \
   } > "$PHP_INI_DIR/conf.d/cloud-run.ini"
 
-
+WORKDIR /var/www/html
 
 RUN rm /var/www/html/index.html
 COPY index.php /var/www/html/index.php
